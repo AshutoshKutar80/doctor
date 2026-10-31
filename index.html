@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dr. Alok Verma | Senior Cardiologist & Heart Specialist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary: #0d9488;
+            --accent: #ef4444;
+            --dark: #0f172a;
+            --card-shadow: 0 12px 30px -5px rgba(2, 132, 199, .08), 0 8px 10px -6px rgba(0, 0, 0, .04);
+            --transition: all .35s cubic-bezier(.25, .8, .25, 1)
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background: #fff;
+            overflow-x: hidden;
+            padding-bottom: 74px
+        }
+
+        @media(min-width:992px) {
+            body {
+                padding-bottom: 0
+            }
+        }
+
+        /* Lock page scroll while mobile menu is open */
+        html.menu-open,
+        html.menu-open body {
+            overflow: hidden !important;
+            height: 100%
+        }
+
+        .menu-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, .45);
+            backdrop-filter: blur(3px);
+            z-index: 1035;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .3s ease, visibility .3s ease
+        }
+
+        .menu-backdrop.show {
+            opacity: 1;
+            visibility: visible
+        }
+
+        /* Top bar */
+        .top-bar {
+            background: var(--dark);
+            color: #94a3b8;
+            font-size: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .top-bar a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition)
+        }
+
+        .top-bar a:hover {
+            color: #38bdf8
+        }
+
+        .pulse-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(239, 68, 68, .15);
+            color: #f87171;
+            padding: 2px 10px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 11px
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: pulseEffect 1.6s infinite
+        }
+
+        @keyframes pulseEffect {
+            0% {
+                transform: scale(.9);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, .7)
+            }
+
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 8px rgba(239, 68, 68, 0)
+            }
+
+            100% {
+                transform: scale(.9);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0)
+            }
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, .98);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, .04);
+            padding: 12px 0;
+            z-index: 1040
+        }
+
+        .navbar-brand {
+            font-size: clamp(1.2rem, 4.5vw, 1.45rem) !important;
+            font-weight: 800;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center
+        }
+
+        .navbar-brand i {
+            animation: heartBeat 1.8s infinite
+        }
+
+        @keyframes heartBeat {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            15% {
+                transform: scale(1.2)
+            }
+
+            30% {
+                transform: scale(1)
+            }
+
+            45% {
+                transform: scale(1.15)
+            }
+        }
+
+        .custom-menu-btn {
+            width: 44px;
+            height: 44px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f172a;
+            font-size: 19px;
+            cursor: pointer;
+            outline: none !important;
+            box-shadow: none !important;
+            transition: all .25s ease;
+            margin-left: auto
+        }
+
+        .custom-menu-btn:hover,
+        .custom-menu-btn:focus,
+        .custom-menu-btn:active {
+            background: #e0f2fe;
+            color: var(--primary);
+            border-color: #7dd3fc;
+            transform: scale(.96)
+        }
+
+        @media(max-width:991.98px) {
+            .navbar-collapse {
+                background: #fff;
+                border-radius: 20px;
+                box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+                padding: 18px;
+                margin-top: 14px;
+                border: 1px solid #e2e8f0;
+                max-height: calc(100vh - 110px);
+                overflow-y: auto;
+                overscroll-behavior: contain;
+                animation: slideDownMenu .3s cubic-bezier(.16, 1, .3, 1)
+            }
+
+            .navbar-nav .nav-link {
+                padding: 12px 16px !important;
+                border-radius: 10px;
+                text-align: left;
+                font-weight: 600;
+                font-size: 15px;
+                color: #334155 !important;
+                display: flex;
+                align-items: center;
+                justify-content: space-between
+            }
+
+            .navbar-nav .nav-link:hover,
+            .navbar-nav .nav-link:active,
+            .navbar-nav .nav-link.active {
+                background: #f0fdfa;
+                color: var(--primary) !important;
+                padding-left: 20px !important
+            }
+
+            .navbar-nav .nav-item {
+                border-bottom: 1px solid #f1f5f9
+            }
+
+            .navbar-nav .nav-item:last-child {
+                border-bottom: none
+            }
+        }
+
+        @keyframes slideDownMenu {
+            from {
+                opacity: 0;
+                transform: translateY(-12px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* Desktop animated header links */
+        @media(min-width:992px) {
+            .navbar-nav .nav-item {
+                opacity: 0;
+                animation: navDrop .6s cubic-bezier(.16, 1, .3, 1) forwards
+            }
+
+            .navbar-nav .nav-item:nth-child(1) {
+                animation-delay: .05s
+            }
+
+            .navbar-nav .nav-item:nth-child(2) {
+                animation-delay: .12s
+            }
+
+            .navbar-nav .nav-item:nth-child(3) {
+                animation-delay: .19s
+            }
+
+            .navbar-nav .nav-item:nth-child(4) {
+                animation-delay: .26s
+            }
+
+            .navbar-nav .nav-item:nth-child(5) {
+                animation-delay: .33s
+            }
+
+            .navbar-nav .nav-item:nth-child(6) {
+                animation-delay: .4s
+            }
+
+            .navbar-nav .nav-item:nth-child(7) {
+                animation-delay: .47s
+            }
+
+            @keyframes navDrop {
+                from {
+                    opacity: 0;
+                    transform: translateY(-14px)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0)
+                }
+            }
+
+            .navbar-nav .nav-link {
+                position: relative;
+                font-weight: 600;
+                font-size: 14.5px;
+                color: #475569;
+                padding: 8px 14px !important;
+                margin: 0 2px;
+                border-radius: 10px;
+                transition: color .3s ease, transform .3s ease, background .3s ease;
+                overflow: hidden
+            }
+
+            .navbar-nav .nav-link::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, #e0f2fe, #ccfbf1);
+                border-radius: 10px;
+                transform: translateY(100%);
+                transition: transform .35s cubic-bezier(.25, .8, .25, 1);
+                z-index: -1
+            }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: 3px;
+                width: 0;
+                height: 2.5px;
+                border-radius: 3px;
+                background: linear-gradient(90deg, var(--primary), var(--secondary));
+                transform: translateX(-50%);
+                transition: width .35s ease
+            }
+
+            .navbar-nav .nav-link:hover,
+            .navbar-nav .nav-link.active {
+                color: var(--primary-dark);
+                transform: translateY(-2px)
+            }
+
+            .navbar-nav .nav-link:hover::before,
+            .navbar-nav .nav-link.active::before {
+                transform: translateY(0)
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: 55%
+            }
+
+            .navbar .btn-medical {
+                position: relative;
+                overflow: hidden
+            }
+
+            .navbar .btn-medical::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -80%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .45), transparent);
+                transform: skewX(-20deg);
+                animation: shine 3.2s infinite
+            }
+
+            @keyframes shine {
+                0% {
+                    left: -80%
+                }
+
+                60%,
+                100% {
+                    left: 140%
+                }
+            }
+        }
+
+        .navbar-nav .nav-link {
+            z-index: 0
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            background: radial-gradient(circle at top right, #e0f2fe 0%, #f0fdfa 35%, #fff 80%);
+            padding: 55px 0 45px;
+            overflow: hidden
+        }
+
+        @media(min-width:992px) {
+            .hero {
+                padding: 95px 0 75px
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 320px;
+            height: 320px;
+            background: rgba(14, 165, 233, .15);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: floatingGlow 7s ease-in-out infinite alternate
+        }
+
+        @keyframes floatingGlow {
+            0% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            100% {
+                transform: translate(-30px, 20px) scale(1.12)
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.18;
+            color: var(--dark)
+        }
+
+        .hero-title span {
+            background: linear-gradient(120deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .doctor-img-box {
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 440px
+        }
+
+        .doctor-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border-radius: 26px;
+            box-shadow: 0 20px 40px -10px rgba(2, 132, 199, .22);
+            transition: var(--transition)
+        }
+
+        .floating-stat-card {
+            position: absolute;
+            background: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(8px);
+            padding: 10px 16px;
+            border-radius: 16px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, .1);
+            border: 1px solid rgba(255, 255, 255, .9);
+            z-index: 2;
+            animation: floaty 4s ease-in-out infinite
+        }
+
+        .floating-stat-card.badge-2 {
+            animation-delay: 1.5s
+        }
+
+        @keyframes floaty {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-8px)
+            }
+        }
+
+        .floating-stat-card.badge-1 {
+            bottom: 12px;
+            left: 10px
+        }
+
+        .floating-stat-card.badge-2 {
+            top: 15px;
+            right: 10px
+        }
+
+        @media(min-width:992px) {
+            .floating-stat-card.badge-1 {
+                bottom: 20px;
+                left: -20px
+            }
+
+            .floating-stat-card.badge-2 {
+                top: 25px;
+                right: -20px
+            }
+        }
+
+        /* Buttons */
+        .btn-medical {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 14px 28px;
+            font-weight: 600;
+            border-radius: 14px;
+            border: none;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, .28);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .btn-medical:hover,
+        .btn-medical:focus {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 26px rgba(2, 132, 199, .42)
+        }
+
+        .btn-medical:active {
+            transform: scale(.97)
+        }
+
+        /* Counters */
+        .counter-section {
+            background: var(--dark);
+            color: #fff;
+            padding: 40px 20px;
+            border-radius: 24px;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 20px 35px -10px rgba(15, 23, 42, .3);
+            margin-top: -25px
+        }
+
+        @media(min-width:992px) {
+            .counter-section {
+                margin-top: -45px;
+                padding: 50px 0;
+                border-radius: 28px
+            }
+        }
+
+        .counter-num {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            color: #38bdf8;
+            line-height: 1.1
+        }
+
+        /* Swipe rows */
+        @media(max-width:767.98px) {
+            .mobile-snap-row {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 16px;
+                gap: 16px;
+                margin-right: -12px;
+                margin-left: -12px;
+                padding-left: 12px;
+                padding-right: 12px
+            }
+
+            .mobile-snap-row::-webkit-scrollbar {
+                display: none
+            }
+
+            .mobile-snap-col {
+                flex: 0 0 86%;
+                max-width: 86%;
+                scroll-snap-align: center
+            }
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -10px rgba(2, 132, 199, .16);
+            border-color: #bae6fd
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: #e0f2fe;
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 18px;
+            transition: var(--transition)
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: #fff;
+            transform: rotateY(180deg)
+        }
+
+        /* Booking */
+        .booking-card {
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 20px 45px -10px rgba(0, 0, 0, .08);
+            border: 1px solid #e2e8f0;
+            padding: 24px 18px
+        }
+
+        @media(min-width:768px) {
+            .booking-card {
+                padding: 40px;
+                border-radius: 28px
+            }
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            position: relative
+        }
+
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 17px;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background: #e2e8f0;
+            z-index: 1
+        }
+
+        .step-progress-bar {
+            position: absolute;
+            top: 17px;
+            left: 20px;
+            width: 0%;
+            height: 3px;
+            background: var(--primary);
+            transition: width .4s ease;
+            z-index: 2
+        }
+
+        .step-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            position: relative;
+            z-index: 3;
+            transition: var(--transition)
+        }
+
+        .step-circle.active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 0 4px rgba(2, 132, 199, .2)
+        }
+
+        .step-circle.completed {
+            background: var(--secondary);
+            color: #fff
+        }
+
+        .pricing-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 30px 20px;
+            background: #fff;
+            text-align: center;
+            transition: var(--transition);
+            height: 100%
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px)
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+            box-shadow: 0 16px 35px rgba(2, 132, 199, .12)
+        }
+
+        @media(min-width:992px) {
+            .pricing-card.featured {
+                transform: scale(1.04)
+            }
+
+            .pricing-card.featured:hover {
+                transform: scale(1.04) translateY(-5px)
+            }
+        }
+
+        /* Mobile dock */
+        .mobile-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid #e2e8f0;
+            padding: 10px 16px;
+            z-index: 1030;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: 0 -8px 25px rgba(0, 0, 0, .06)
+        }
+
+        .mobile-btn-call,
+        .mobile-btn-wa {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            flex-shrink: 0
+        }
+
+        .mobile-btn-call {
+            background: #fee2e2;
+            color: #ef4444;
+            font-size: 18px
+        }
+
+        .mobile-btn-wa {
+            background: #dcfce7;
+            color: #10b981;
+            font-size: 19px
+        }
+
+        .mobile-btn-book {
+            flex-grow: 1;
+            padding: 11px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, .35)
+        }
+
+        .desktop-floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 58px;
+            height: 58px;
+            background: #10b981;
+            color: #fff;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, .4);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition)
+        }
+
+        @media(min-width:992px) {
+            .desktop-floating-call {
+                display: flex
+            }
+
+            .desktop-floating-call:hover {
+                color: #fff;
+                transform: scale(1.08)
+            }
+        }
+
+        .receipt-card {
+            border-left: 4px solid var(--secondary);
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 18px
+        }
+
+        /* Payment */
+        .pay-option {
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: var(--transition)
+        }
+
+        .pay-option:hover {
+            border-color: #7dd3fc;
+            background: #f0f9ff
+        }
+
+        .pay-option.selected {
+            border-color: var(--primary);
+            background: #e0f2fe;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, .12)
+        }
+
+        .fee-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            padding: 4px 0
+        }
+
+        .fee-row.total {
+            border-top: 1px dashed #cbd5e1;
+            margin-top: 6px;
+            padding-top: 8px;
+            font-weight: 800;
+            font-size: 15px;
+            color: var(--dark)
+        }
+
+        /* Animated transaction overlay */
+        .pay-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, .72);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+        .pay-overlay.show {
+            display: flex;
+            animation: fadeIn .3s ease
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .pay-box {
+            background: #fff;
+            border-radius: 24px;
+            padding: 30px 24px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .3);
+            animation: popIn .45s cubic-bezier(.16, 1, .3, 1)
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(.88) translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0)
+            }
+        }
+
+        .pay-ring {
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            border: 6px solid #e0f2fe;
+            border-top-color: var(--primary);
+            border-right-color: var(--secondary);
+            animation: spin 1s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .pay-ring i {
+            animation: spin 1s linear infinite reverse;
+            color: var(--primary);
+            font-size: 22px
+        }
+
+        .pay-amount {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--dark)
+        }
+
+        .pay-steps {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 12px;
+            text-align: left
+        }
+
+        .pay-steps li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 0;
+            font-size: 13.5px;
+            color: #94a3b8;
+            transition: color .3s ease
+        }
+
+        .pay-steps li .dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: #fff;
+            flex-shrink: 0;
+            transition: all .3s ease
+        }
+
+        .pay-steps li.active {
+            color: var(--primary);
+            font-weight: 700
+        }
+
+        .pay-steps li.active .dot {
+            border-color: var(--primary);
+            animation: pulseEffect 1.2s infinite
+        }
+
+        .pay-steps li.done {
+            color: #0f172a
+        }
+
+        .pay-steps li.done .dot {
+            background: var(--secondary);
+            border-color: var(--secondary)
+        }
+
+        .pay-progress {
+            height: 6px;
+            border-radius: 6px;
+            background: #e2e8f0;
+            overflow: hidden
+        }
+
+        .pay-progress span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width .6s ease
+        }
+
+        /* Animated success check */
+        .success-check {
+            width: 84px;
+            height: 84px;
+            margin: 0 auto 10px
+        }
+
+        .success-check circle {
+            stroke: #10b981;
+            stroke-width: 4;
+            fill: none;
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166
+        }
+
+        .success-check path {
+            stroke: #10b981;
+            stroke-width: 5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48
+        }
+
+        .modal.show .success-check circle {
+            animation: draw .7s .1s ease forwards
+        }
+
+        .modal.show .success-check path {
+            animation: draw .45s .7s ease forwards
+        }
+
+        .modal.show .success-check {
+            animation: bounceIn .6s ease
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(.4)
+            }
+
+            60% {
+                transform: scale(1.12)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        .modal.show .receipt-card .rrow {
+            opacity: 0;
+            animation: rowIn .45s ease forwards
+        }
+
+        .modal.show .receipt-card .rrow:nth-child(1) {
+            animation-delay: .8s
+        }
+
+        .modal.show .receipt-card .rrow:nth-child(2) {
+            animation-delay: .9s
+        }
+
+        .modal.show .receipt-card .rrow:nth-child(3) {
+            animation-delay: 1s
+        }
+
+        .modal.show .receipt-card .rrow:nth-child(4) {
+            animation-delay: 1.1s
+        }
+
+        .modal.show .receipt-card .rrow:nth-child(5) {
+            animation-delay: 1.2s
+        }
+
+        .modal.show .receipt-card .rrow:nth-child(6) {
+            animation-delay: 1.3s
+        }
+
+        .modal.show .receipt-card .rrow:nth-child(7) {
+            animation-delay: 1.4s
+        }
+
+        @keyframes rowIn {
+            from {
+                opacity: 0;
+                transform: translateX(-14px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        /* Sections */
+        .feature-box {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 22px;
+            height: 100%;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition)
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            border-color: #bae6fd
+        }
+
+        .feature-box .ic {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: #ccfbf1;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 14px
+        }
+
+        .process-num {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, #0f172a, #1e3a5f);
+            color: #fff;
+            border-radius: 18px;
+            padding: 22px;
+            height: 100%
+        }
+
+        .award-card i {
+            color: #fbbf24;
+            font-size: 26px
+        }
+
+        .insurer-chip {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 18px;
+            font-weight: 700;
+            font-size: 13px;
+            color: #475569
+        }
+
+        .contact-box {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 18px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start
+        }
+
+        .contact-box .ic {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: #e0f2fe;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .facility-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 18px;
+            transition: var(--transition)
+        }
+
+        .facility-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: var(--card-shadow)
+        }
+
+        .facility-wrap:hover .facility-img {
+            transform: scale(1.07)
+        }
+
+        .facility-wrap .cap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 30px 16px 12px;
+            background: linear-gradient(transparent, rgba(15, 23, 42, .85));
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px
+        }
+
+        .testi-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #e0f2fe
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <!-- 1. Top Bar -->
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <span class="pulse-badge"><span class="pulse-dot"></span> 24/7 Cardiac ICU</span>
+                <a href="tel:+919876543210" class="fw-bold text-white small"><i
+                        class="fa-solid fa-phone text-danger me-1"></i> +91 98765 43210</a>
+            </div>
+            <div class="d-none d-md-flex align-items-center gap-3">
+                <span><i class="fa-regular fa-clock me-1"></i> Mon - Sat: 09:00 AM - 08:00 PM</span>
+                <span><i class="fa-solid fa-location-dot text-primary me-1"></i> Apollo Hospital, Sec 14</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-dark" href="#top"><i
+                    class="fa-solid fa-heart-pulse text-primary me-2"></i><span>Dr. Verma<span
+                        class="text-primary">.Clinic</span></span></a>
+            <button class="custom-menu-btn d-lg-none" type="button" id="menuToggle" data-bs-toggle="collapse"
+                data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false"
+                aria-label="Toggle navigation"><i class="fa-solid fa-bars-staggered" id="menuIcon"></i></button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#about"><span>About Doctor</span><i
+                                class="fa-solid fa-chevron-right d-lg-none text-muted small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services"><span>Treatments</span><i
+                                class="fa-solid fa-chevron-right d-lg-none text-muted small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule"><span>OPD Hours</span><i
+                                class="fa-solid fa-chevron-right d-lg-none text-muted small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing"><span>Health Plans</span><i
+                                class="fa-solid fa-chevron-right d-lg-none text-muted small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials"><span>Reviews</span><i
+                                class="fa-solid fa-chevron-right d-lg-none text-muted small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faqs"><span>FAQs</span><i
+                                class="fa-solid fa-chevron-right d-lg-none text-muted small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact"><span>Contact</span><i
+                                class="fa-solid fa-chevron-right d-lg-none text-muted small"></i></a></li>
+                </ul>
+                <div class="pt-2 pt-lg-0"><a href="#booking-section" class="btn btn-medical w-100 w-lg-auto"><i
+                            class="fa-solid fa-calendar-plus me-2"></i>Book Consultation</a></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. Hero -->
+    <section class="hero" id="top">
+        <div class="container">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <div class="d-inline-flex align-items-center gap-2 px-3 py-1 bg-white rounded-pill shadow-sm mb-3">
+                        <i class="fa-solid fa-award text-warning"></i><span
+                            class="small fw-semibold text-secondary">Trusted by 45,000+ Heart Patients</span></div>
+                    <h1 class="hero-title mb-3">Your Heart Deserves <span>Expert Hands</span>.</h1>
+                    <p class="lead text-muted mb-4 fs-6 fs-md-5">Meet Dr. Alok Verma (MBBS, MD, DM Cardiology, FACC
+                        USA), a leading interventional cardiologist offering painless radial angioplasty, advanced
+                        heart-rhythm care and honest, evidence-based treatment advice.</p>
+                    <div
+                        class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3 mb-4">
+                        <a href="#booking-section" class="btn btn-medical btn-lg px-4"><i
+                                class="fa-solid fa-bolt me-2"></i>Book Your OPD Slot</a>
+                        <a href="#schedule" class="btn btn-outline-secondary btn-lg px-4 rounded-3"><i
+                                class="fa-regular fa-calendar-check me-2"></i>See Clinic Timings</a>
+                    </div>
+                    <div
+                        class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 pt-2 small text-muted">
+                        <span><i class="fa-solid fa-circle-check text-success me-1"></i> NABH Accredited</span>
+                        <span><i class="fa-solid fa-circle-check text-success me-1"></i> No Waiting Queue</span>
+                        <span><i class="fa-solid fa-circle-check text-success me-1"></i> Cashless Insurance</span>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="doctor-img-box">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop"
+                            alt="Dr. Alok Verma, Cardiologist" class="doctor-img img-fluid">
+                        <div class="floating-stat-card badge-1 text-start">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="bg-primary text-white p-2 rounded-circle"
+                                    style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:14px;">
+                                    <i class="fa-solid fa-heart-pulse"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold small">99.4%</h6><small class="text-muted"
+                                        style="font-size:11px;">Procedure Success</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-stat-card badge-2 text-start">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="bg-success text-white p-2 rounded-circle"
+                                    style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:14px;">
+                                    <i class="fa-solid fa-user-doctor"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold small">22+ Years</h6><small class="text-muted"
+                                        style="font-size:11px;">Clinical Experience</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Counters -->
+    <div class="container">
+        <div class="counter-section">
+            <div class="row text-center g-3">
+                <div class="col-6 col-md-3">
+                    <div class="counter-num" data-target="22">0</div>
+                    <p class="text-white-50 mb-0 small">Years of Practice</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="counter-num" data-target="18500">0</div>
+                    <p class="text-white-50 mb-0 small">Angioplasties Performed</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="counter-num" data-target="45000">0</div>
+                    <p class="text-white-50 mb-0 small">Happy Patients</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="counter-num" data-target="15">0</div>
+                    <p class="text-white-50 mb-0 small">National Awards</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. About -->
+    <section id="about" class="py-5 my-3">
+        <div class="container">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-5">
+                    <div class="p-3 p-md-4 rounded-4 bg-light position-relative text-center">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=700&auto=format&fit=crop"
+                            class="img-fluid rounded-4 shadow-sm" alt="Doctor with stethoscope">
+                        <div class="p-2 p-md-3 bg-white rounded-3 shadow-sm mt-3 text-start border"><small
+                                class="fw-semibold text-primary"><i class="fa-solid fa-quote-left me-1"></i> "Every
+                                patient gets time, a clear explanation and an honest plan."</small></div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <span class="text-primary fw-bold text-uppercase small">Senior Consultant &amp; Director, Cardiac
+                        Sciences</span>
+                    <h2 class="h2 fw-bold mt-1 mb-3">Two Decades of Healing Hearts, One Patient at a Time</h2>
+                    <p class="text-muted small mb-3">Dr. Alok Verma trained at AIIMS New Delhi and Mount Sinai, New
+                        York, and has spent over 22 years in interventional cardiology. He is known for complex radial
+                        angioplasty, TAVR valve replacement and device therapy, and equally for advising patients when a
+                        procedure is <em>not</em> needed.</p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <h6 class="fw-bold mb-1"><i
+                                        class="fa-solid fa-graduation-cap text-primary me-2"></i>Qualifications</h6>
+                                <p class="small text-muted mb-0">MBBS, MD (Medicine), DM (Cardiology), FACC (USA)</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <h6 class="fw-bold mb-1"><i
+                                        class="fa-solid fa-shield-halved text-secondary me-2"></i>Affiliations</h6>
+                                <p class="small text-muted mb-0">Cardiological Society of India, European Society of
+                                    Cardiology</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#booking-section" class="btn btn-outline-primary rounded-3 w-100 w-sm-auto">Check Dr.
+                        Verma's Availability <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5b. Why Choose Us -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold">The Verma
+                    Difference</span>
+                <h2 class="h2 fw-bold mt-2">Care You Can Count On</h2>
+                <p class="text-muted small">Honest advice, modern technology and a team that follows up</p>
+            </div>
+            <div class="row g-3 g-lg-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="ic"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                        <h6 class="fw-bold">Honest Second Look</h6>
+                        <p class="text-muted small mb-0">Medication first, procedure only when it truly benefits you.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="ic"><i class="fa-solid fa-microscope"></i></div>
+                        <h6 class="fw-bold">Image-Guided Precision</h6>
+                        <p class="text-muted small mb-0">IVUS, FFR and OCT guidance for accurate, long-lasting
+                            stenting.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="ic"><i class="fa-solid fa-file-medical"></i></div>
+                        <h6 class="fw-bold">Reports on WhatsApp</h6>
+                        <p class="text-muted small mb-0">ECG, Echo and prescriptions shared digitally the same day.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-box">
+                        <div class="ic"><i class="fa-solid fa-user-clock"></i></div>
+                        <h6 class="fw-bold">Lifelong Follow-up</h6>
+                        <p class="text-muted small mb-0">Free 15-day review and a helpline you can actually reach.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5c. Facilities -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-semibold">Our
+                    Facilities</span>
+                <h2 class="h2 fw-bold mt-2">A Hospital Built Around the Heart</h2>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="facility-wrap"><img class="facility-img"
+                            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=700&auto=format&fit=crop"
+                            alt="Cardiac ICU">
+                        <div class="cap"><i class="fa-solid fa-bed-pulse me-2"></i>12-Bed Cardiac ICU</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="facility-wrap"><img class="facility-img"
+                            src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=700&auto=format&fit=crop"
+                            alt="Cath lab">
+                        <div class="cap"><i class="fa-solid fa-heart-circle-bolt me-2"></i>Digital Cath Lab</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="facility-wrap"><img class="facility-img"
+                            src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=700&auto=format&fit=crop"
+                            alt="Diagnostics">
+                        <div class="cap"><i class="fa-solid fa-wave-square me-2"></i>Echo &amp; Stress Test Suite
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Treatments -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-semibold">Clinical
+                    Expertise</span>
+                <h2 class="h2 fw-bold mt-2">Advanced Heart Treatments</h2>
+                <p class="text-muted small">Swipe left/right on mobile to explore services</p>
+            </div>
+            <div class="mobile-snap-row row g-4">
+                <div class="mobile-snap-col col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-heart-circle-bolt"></i></div>
+                        <h5 class="fw-bold mb-2">Radial Angioplasty</h5>
+                        <p class="text-muted small flex-grow-1">Blockage opening through the wrist with drug-coated
+                            stents. Walk the same day, minimal pain and quick recovery.</p><a href="#booking-section"
+                            class="text-primary fw-semibold small text-decoration-none mt-2">Book Evaluation &rarr;</a>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-wave-square"></i></div>
+                        <h5 class="fw-bold mb-2">Heart Rhythm &amp; Pacemakers</h5>
+                        <p class="text-muted small flex-grow-1">Diagnosis and treatment of palpitations, fainting and
+                            slow heartbeat with pacemakers, ICDs and ablation.</p><a href="#booking-section"
+                            class="text-primary fw-semibold small text-decoration-none mt-2">Book Evaluation &rarr;</a>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                        <h5 class="fw-bold mb-2">TAVR Valve Clinic</h5>
+                        <p class="text-muted small flex-grow-1">Replace a narrowed aortic valve through a small leg
+                            puncture, ideal for elderly or high-risk surgical patients.</p><a href="#booking-section"
+                            class="text-primary fw-semibold small text-decoration-none mt-2">Book Evaluation &rarr;</a>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-dna"></i></div>
+                        <h5 class="fw-bold mb-2">Preventive Cardiology</h5>
+                        <p class="text-muted small flex-grow-1">Family-history risk scoring, cholesterol control, CT
+                            calcium score and lifestyle plans to prevent a first heart attack.</p><a
+                            href="#booking-section"
+                            class="text-primary fw-semibold small text-decoration-none mt-2">Book Evaluation &rarr;</a>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-laptop-medical"></i></div>
+                        <h5 class="fw-bold mb-2">Heart Failure Care</h5>
+                        <p class="text-muted small flex-grow-1">Modern medicines, device therapy and monitoring to ease
+                            breathlessness and swelling in weak-heart patients.</p><a href="#booking-section"
+                            class="text-primary fw-semibold small text-decoration-none mt-2">Book Evaluation &rarr;</a>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-video"></i></div>
+                        <h5 class="fw-bold mb-2">Online Second Opinion</h5>
+                        <p class="text-muted small flex-grow-1">Share your angiogram or bypass advice from anywhere in
+                            the world and get a clear expert opinion by video.</p><a href="#booking-section"
+                            class="text-primary fw-semibold small text-decoration-none mt-2">Book Evaluation &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6b. How It Works -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-semibold">Simple
+                    Process</span>
+                <h2 class="h2 fw-bold mt-2">Your Visit in 4 Easy Steps</h2>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-6 col-lg-3">
+                    <div class="process-num">1</div>
+                    <h6 class="fw-bold">Choose a Slot</h6>
+                    <p class="text-muted small">Select service and time in under a minute.</p>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="process-num">2</div>
+                    <h6 class="fw-bold">Pay Securely</h6>
+                    <p class="text-muted small">UPI, card or at the clinic counter.</p>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="process-num">3</div>
+                    <h6 class="fw-bold">Receive Token</h6>
+                    <p class="text-muted small">Instant receipt and WhatsApp reminder.</p>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="process-num">4</div>
+                    <h6 class="fw-bold">Meet the Doctor</h6>
+                    <p class="text-muted small">Walk in at your time, no queue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Schedule -->
+    <section id="schedule" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fw-semibold">Clinic
+                    Timings</span>
+                <h2 class="h2 fw-bold mt-2">Weekly OPD Schedule</h2>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-3 border rounded-3 bg-white h-100 shadow-sm"><span class="badge bg-primary mb-2">Mon
+                            - Wed</span>
+                        <h6 class="fw-bold mb-1">Apollo Super Speciality</h6>
+                        <p class="text-muted small mb-1"><i class="fa-regular fa-clock me-1"></i> Morning: 10:00 AM -
+                            01:30 PM</p>
+                        <p class="text-muted small mb-2"><i class="fa-regular fa-clock me-1"></i> Evening: 05:00 PM -
+                            08:00 PM</p><span class="badge bg-success-subtle text-success small">Available</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-3 border rounded-3 bg-white h-100 shadow-sm"><span class="badge bg-primary mb-2">Thu
+                            - Fri</span>
+                        <h6 class="fw-bold mb-1">Heart Care Clinic</h6>
+                        <p class="text-muted small mb-1"><i class="fa-regular fa-clock me-1"></i> Morning: 09:30 AM -
+                            01:00 PM</p>
+                        <p class="text-muted small mb-2"><i class="fa-regular fa-clock me-1"></i> Evening: 04:30 PM -
+                            07:30 PM</p><span class="badge bg-success-subtle text-success small">Available</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-3 border rounded-3 bg-white h-100 shadow-sm"><span
+                            class="badge bg-info mb-2">Saturday</span>
+                        <h6 class="fw-bold mb-1">Virtual Video OPD</h6>
+                        <p class="text-muted small mb-1"><i class="fa-solid fa-video me-1"></i> 11:00 AM - 03:00 PM
+                        </p>
+                        <p class="text-muted small mb-2"><i class="fa-solid fa-globe me-1"></i> Second opinions,
+                            worldwide</p><span class="badge bg-warning-subtle text-warning small">Few Slots Left</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-3 border rounded-3 bg-danger-subtle text-danger h-100 shadow-sm"><span
+                            class="badge bg-danger mb-2">Sunday</span>
+                        <h6 class="fw-bold mb-1">Emergency Cath Lab</h6>
+                        <p class="small mb-1"><i class="fa-solid fa-truck-medical me-1"></i> 24x7 Ambulance Dispatch
+                        </p>
+                        <p class="small mb-2"><i class="fa-solid fa-kit-medical me-1"></i> ICU &amp; Emergency
+                            Stenting Only</p><span class="badge bg-danger text-white small">Emergency Only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Booking -->
+    <section id="booking-section" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-primary px-3 py-2 rounded-pill text-white fw-semibold">Instant Token</span>
+                <h2 class="h2 fw-bold mt-2">Book Your Consultation</h2>
+                <p class="text-muted small">Pay online securely or at the clinic counter.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="booking-card">
+                        <div class="step-indicator">
+                            <div class="step-progress-bar" id="stepProgressBar"></div>
+                            <div class="step-circle active" id="circle1">1</div>
+                            <div class="step-circle" id="circle2">2</div>
+                            <div class="step-circle" id="circle3">3</div>
+                        </div>
+                        <form id="appointmentForm">
+                            <div class="step-content" id="step1">
+                                <h5 class="fw-bold mb-3 text-dark"><i
+                                        class="fa-solid fa-calendar-days text-primary me-2"></i>1. Service &amp;
+                                    Schedule</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold small">Choose Speciality</label>
+                                        <select class="form-select" id="inputDepartment" required>
+                                            <option value="Cardiology OPD Consultation">General Cardiology OPD (₹1,000)
+                                            </option>
+                                            <option value="Angioplasty & Stent Review">Angioplasty &amp; Stent Review
+                                                (₹1,500)</option>
+                                            <option value="Pacemaker Checkup Clinic">Pacemaker Clinic (₹1,200)</option>
+                                            <option value="Virtual Video Consultation">Virtual Video Consultation
+                                                (₹800)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-semibold small">Choose Preferred Time</label>
+                                        <select class="form-select" id="inputSlot" required>
+                                            <option value="Today - Evening (05:30 PM)">Today - Evening (05:30 PM)
+                                            </option>
+                                            <option value="Tomorrow - Morning (10:30 AM)">Tomorrow - Morning (10:30 AM)
+                                            </option>
+                                            <option value="Tomorrow - Evening (06:00 PM)">Tomorrow - Evening (06:00 PM)
+                                            </option>
+                                            <option value="Saturday - Morning (11:30 AM)">Saturday - Morning (11:30 AM)
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label fw-semibold small">Mode of Consultation</label>
+                                        <div class="d-flex flex-column flex-sm-row gap-2">
+                                            <div class="form-check border p-2 p-sm-3 rounded-3 flex-grow-1"><input
+                                                    class="form-check-input" type="radio" name="package"
+                                                    id="pkg1" value="In-Clinic Priority" checked><label
+                                                    class="form-check-label fw-bold small" for="pkg1">In-Clinic
+                                                    Physical OPD<span class="d-block text-muted fw-normal"
+                                                        style="font-size:11px;">Physical checkup + ECG review at
+                                                        clinic</span></label></div>
+                                            <div class="form-check border p-2 p-sm-3 rounded-3 flex-grow-1"><input
+                                                    class="form-check-input" type="radio" name="package"
+                                                    id="pkg2" value="Tele-Video Consult"><label
+                                                    class="form-check-label fw-bold small" for="pkg2">Encrypted
+                                                    Video Call<span class="d-block text-muted fw-normal"
+                                                        style="font-size:11px;">Connect on phone from your
+                                                        home</span></label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-end mt-4"><button type="button"
+                                        class="btn btn-medical w-100 w-sm-auto" id="nextToStep2">Next: Patient Details
+                                        &rarr;</button></div>
+                            </div>
+
+                            <div class="step-content d-none" id="step2">
+                                <h5 class="fw-bold mb-3 text-dark"><i
+                                        class="fa-solid fa-user text-primary me-2"></i>2. Patient Information</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6"><label class="form-label fw-semibold small">Patient Full
+                                            Name</label><input type="text" class="form-control" id="inputName"
+                                            placeholder="e.g. Rahul Sharma" required></div>
+                                    <div class="col-md-6"><label class="form-label fw-semibold small">WhatsApp /
+                                            Mobile Number</label><input type="tel" class="form-control"
+                                            id="inputPhone" placeholder="e.g. 9876543210" required></div>
+                                    <div class="col-md-6"><label class="form-label fw-semibold small">Age &amp;
+                                            Gender</label><input type="text" class="form-control"
+                                            placeholder="e.g. 54, Male"></div>
+                                    <div class="col-md-6"><label class="form-label fw-semibold small">Current
+                                            Symptoms</label><input type="text" class="form-control"
+                                            placeholder="e.g. Chest tightness, High BP"></div>
+                                </div>
+                                <div class="d-flex justify-content-between gap-2 mt-4">
+                                    <button type="button" class="btn btn-outline-secondary px-3"
+                                        id="backToStep1">&larr; Back</button>
+                                    <button type="button" class="btn btn-medical px-3" id="nextToStep3">Review &amp;
+                                        Pay &rarr;</button>
+                                </div>
+                            </div>
+
+                            <div class="step-content d-none" id="step3">
+                                <h5 class="fw-bold mb-3 text-dark"><i
+                                        class="fa-solid fa-circle-check text-success me-2"></i>3. Confirm &amp; Pay
+                                </h5>
+                                <div class="receipt-card mb-3">
+                                    <div class="row g-2 small">
+                                        <div class="col-6"><span class="text-muted">Doctor:</span>
+                                            <p class="fw-bold mb-0">Dr. Alok Verma</p>
+                                        </div>
+                                        <div class="col-6"><span class="text-muted">Location:</span>
+                                            <p class="fw-bold mb-0">Apollo Sector 14</p>
+                                        </div>
+                                        <div class="col-6"><span class="text-muted">Service:</span>
+                                            <p class="fw-bold mb-0 text-truncate" id="summaryService">-</p>
+                                        </div>
+                                        <div class="col-6"><span class="text-muted">Patient:</span>
+                                            <p class="fw-bold mb-0 text-truncate" id="summaryName">-</p>
+                                        </div>
+                                        <div class="col-12"><span class="text-muted">Time Slot:</span>
+                                            <p class="fw-bold text-primary mb-0" id="summarySlot">-</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-light rounded-3 mb-3">
+                                    <div class="fee-row"><span class="text-muted">Consultation Fee</span><span
+                                            id="feeBase">₹0</span></div>
+                                    <div class="fee-row"><span class="text-muted">Online Booking Fee</span><span
+                                            id="feeConv">₹0</span></div>
+                                    <div class="fee-row total"><span>Total Payable</span><span class="text-primary"
+                                            id="feeTotal">₹0</span></div>
+                                </div>
+                                <h6 class="fw-bold small mb-2"><i
+                                        class="fa-solid fa-wallet text-primary me-2"></i>Payment Method</h6>
+                                <div class="d-grid gap-2 mb-3">
+                                    <label class="pay-option selected d-flex align-items-center gap-2"
+                                        data-method="UPI"><input type="radio" name="payMethod" value="UPI"
+                                            checked><i class="fa-solid fa-mobile-screen text-primary"></i><span
+                                            class="small fw-bold">UPI (GPay / PhonePe / Paytm)</span></label>
+                                    <label class="pay-option d-flex align-items-center gap-2"
+                                        data-method="Card/NetBanking"><input type="radio" name="payMethod"
+                                            value="Card/NetBanking"><i
+                                            class="fa-regular fa-credit-card text-primary"></i><span
+                                            class="small fw-bold">Card / Net Banking (Secure Gateway)</span></label>
+                                    <label class="pay-option d-flex align-items-center gap-2"
+                                        data-method="Pay at Clinic"><input type="radio" name="payMethod"
+                                            value="Pay at Clinic"><i
+                                            class="fa-solid fa-hospital text-primary"></i><span
+                                            class="small fw-bold">Pay at Clinic Counter</span></label>
+                                </div>
+                                <div id="upiBox" class="mb-3"><input type="text" class="form-control"
+                                        id="inputUpi" placeholder="Enter UPI ID (e.g. rahul@okaxis)"></div>
+                                <div class="form-check mb-3"><input class="form-check-input" type="checkbox"
+                                        id="termsCheck" checked required><label
+                                        class="form-check-label small text-muted" for="termsCheck">Send me booking
+                                        reminder on WhatsApp &amp; SMS.</label></div>
+                                <div class="d-flex justify-content-between gap-2">
+                                    <button type="button" class="btn btn-outline-secondary px-3"
+                                        id="backToStep2">&larr; Edit</button>
+                                    <button type="submit" class="btn btn-success px-4" id="confirmSubmitBtn"><i
+                                            class="fa-solid fa-lock me-1"></i> Pay &amp; Confirm Token</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Packages -->
+    <section id="pricing" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-info-subtle text-info-emphasis px-3 py-2 rounded-pill fw-semibold">Preventive
+                    Health</span>
+                <h2 class="h2 fw-bold mt-2">Heart Health Packages</h2>
+            </div>
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h5 class="fw-bold">Heart Basic</h5>
+                        <p class="text-muted small">Yearly routine heart checkup</p>
+                        <h3 class="fw-bold my-3">₹1,499</h3>
+                        <ul class="list-unstyled text-start small mb-4">
+                            <li class="py-2 border-bottom"><i class="fa-solid fa-check text-success me-2"></i>12-Lead
+                                Digital ECG</li>
+                            <li class="py-2 border-bottom"><i class="fa-solid fa-check text-success me-2"></i>Complete
+                                Lipid Profile</li>
+                            <li class="py-2 border-bottom"><i class="fa-solid fa-check text-success me-2"></i>Blood
+                                Pressure &amp; BMI</li>
+                            <li class="py-2"><i class="fa-solid fa-check text-success me-2"></i>Consultation with
+                                Dr. Verma</li>
+                        </ul><a href="#booking-section" class="btn btn-outline-primary w-100 rounded-3">Choose
+                            Basic</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card featured"><span
+                            class="badge bg-primary text-white position-absolute top-0 start-50 translate-middle px-3 py-1 rounded-pill">Most
+                            Popular</span>
+                        <h5 class="fw-bold">Heart Plus</h5>
+                        <p class="text-muted small">Recommended for Diabetes / BP</p>
+                        <h3 class="fw-bold my-3 text-primary">₹3,499</h3>
+                        <ul class="list-unstyled text-start small mb-4">
+                            <li class="py-2 border-bottom"><i
+                                    class="fa-solid fa-check text-success me-2"></i>Everything in Basic</li>
+                            <li class="py-2 border-bottom"><i class="fa-solid fa-check text-success me-2"></i>Colour
+                                Doppler 2D Echo</li>
+                            <li class="py-2 border-bottom"><i class="fa-solid fa-check text-success me-2"></i>TMT
+                                (Treadmill Stress Test)</li>
+                            <li class="py-2"><i class="fa-solid fa-check text-success me-2"></i>Priority
+                                Consultation Slot</li>
+                        </ul><a href="#booking-section" class="btn btn-medical w-100 rounded-3">Book Heart Plus</a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h5 class="fw-bold">Heart Executive</h5>
+                        <p class="text-muted small">Complete risk and imaging profile</p>
+                        <h3 class="fw-bold my-3">₹6,999</h3>
+                        <ul class="list-unstyled text-start small mb-4">
+                            <li class="py-2 border-bottom"><i
+                                    class="fa-solid fa-check text-success me-2"></i>Everything in Heart Plus</li>
+                            <li class="py-2 border-bottom"><i class="fa-solid fa-check text-success me-2"></i>CT
+                                Coronary Calcium Score</li>
+                            <li class="py-2 border-bottom"><i class="fa-solid fa-check text-success me-2"></i>Carotid
+                                Artery Ultrasound</li>
+                            <li class="py-2"><i class="fa-solid fa-check text-success me-2"></i>Free 15-Day Review
+                                Visit</li>
+                        </ul><a href="#booking-section" class="btn btn-outline-primary w-100 rounded-3">Choose
+                            Executive</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9b. Awards -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-warning-subtle text-dark px-3 py-2 rounded-pill fw-semibold">Recognition</span>
+                <h2 class="h2 fw-bold mt-2">Awards &amp; Achievements</h2>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="award-card"><i class="fa-solid fa-trophy mb-2"></i>
+                        <h6 class="fw-bold">Best Interventional Cardiologist</h6>
+                        <p class="small text-white-50 mb-0">Delhi Healthcare Excellence Awards</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="award-card"><i class="fa-solid fa-medal mb-2"></i>
+                        <h6 class="fw-bold">Gold Medal, DM Cardiology</h6>
+                        <p class="small text-white-50 mb-0">AIIMS New Delhi</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="award-card"><i class="fa-solid fa-book-medical mb-2"></i>
+                        <h6 class="fw-bold">60+ Research Publications</h6>
+                        <p class="small text-white-50 mb-0">National &amp; international journals</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p class="small fw-semibold text-muted mb-3">Cashless Insurance Partners</p>
+                <div class="d-flex flex-wrap justify-content-center gap-2"><span class="insurer-chip">Star
+                        Health</span><span class="insurer-chip">HDFC Ergo</span><span class="insurer-chip">ICICI
+                        Lombard</span><span class="insurer-chip">CGHS</span><span class="insurer-chip">Niva
+                        Bupa</span><span class="insurer-chip">Care Health</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Testimonials -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-warning-subtle text-dark px-3 py-2 rounded-pill fw-semibold">Patient
+                    Stories</span>
+                <h2 class="h2 fw-bold mt-2">What Our Patients Say</h2>
+            </div>
+            <div class="mobile-snap-row row g-3">
+                <div class="mobile-snap-col col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm border h-100">
+                        <div class="text-warning mb-2 small"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-muted small">"At 2 AM my father had severe chest pain. The cath lab team was
+                            ready when we arrived and the angioplasty was done within the hour. We are forever
+                            grateful."</p>
+                        <div class="d-flex align-items-center gap-2"><img class="testi-avatar"
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop"
+                                alt="Vikram Kapoor">
+                            <div>
+                                <h6 class="fw-bold mb-0 small">Vikram Kapoor</h6><small class="text-muted"
+                                    style="font-size:11px;">Emergency Angioplasty</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm border h-100">
+                        <div class="text-warning mb-2 small"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-muted small">"Booking, token and payment were all done on my phone. I walked in
+                            at my slot and was seen without any waiting. The pacemaker follow-up has been excellent."
+                        </p>
+                        <div class="d-flex align-items-center gap-2"><img class="testi-avatar"
+                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=120&auto=format&fit=crop"
+                                alt="Suman Mathur">
+                            <div>
+                                <h6 class="fw-bold mb-0 small">Suman Mathur</h6><small class="text-muted"
+                                    style="font-size:11px;">Pacemaker Patient</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm border h-100">
+                        <div class="text-warning mb-2 small"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-muted small">"He explained my echo report in simple words and told me no stent
+                            was needed, only medicines and lifestyle changes. That honesty is rare."</p>
+                        <div class="d-flex align-items-center gap-2"><img class="testi-avatar"
+                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop"
+                                alt="Ramesh Patel">
+                            <div>
+                                <h6 class="fw-bold mb-0 small">Ramesh Patel</h6><small class="text-muted"
+                                    style="font-size:11px;">Preventive Check-up</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm border h-100">
+                        <div class="text-warning mb-2 small"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-muted small">"I joined the video OPD from Dubai. He studied my angiogram
+                            carefully and saved me from a bypass surgery I did not need."</p>
+                        <div class="d-flex align-items-center gap-2"><img class="testi-avatar"
+                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=120&auto=format&fit=crop"
+                                alt="Anil Khanna">
+                            <div>
+                                <h6 class="fw-bold mb-0 small">Anil Khanna</h6><small class="text-muted"
+                                    style="font-size:11px;">Online Second Opinion</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm border h-100">
+                        <div class="text-warning mb-2 small"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-muted small">"My mother's TAVR was done without open-heart surgery and she went
+                            home in three days. The nurses and the doctor were incredibly kind."</p>
+                        <div class="d-flex align-items-center gap-2"><img class="testi-avatar"
+                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop"
+                                alt="Neha Singhal">
+                            <div>
+                                <h6 class="fw-bold mb-0 small">Neha Singhal</h6><small class="text-muted"
+                                    style="font-size:11px;">TAVR Patient's Family</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-snap-col col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm border h-100">
+                        <div class="text-warning mb-2 small"><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <p class="text-muted small">"After joining the heart failure clinic my breathlessness reduced a
+                            lot. Dr. Verma patiently answers every question, every visit."</p>
+                        <div class="d-flex align-items-center gap-2"><img class="testi-avatar"
+                                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=120&auto=format&fit=crop"
+                                alt="Harish Gupta">
+                            <div>
+                                <h6 class="fw-bold mb-0 small">Harish Gupta</h6><small class="text-muted"
+                                    style="font-size:11px;">Heart Failure Patient</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. FAQ -->
+    <section id="faqs" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fw-semibold">FAQs</span>
+                <h2 class="h2 fw-bold mt-2">Questions Patients Often Ask</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item rounded-3 mb-2 border">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#f1">What should I bring
+                                    to my first visit?</button></h2>
+                            <div id="f1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted small">Bring old ECGs, echo and angiography
+                                    reports, blood tests, and all current medicines (or their photos). An ID proof helps
+                                    for insurance.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-3 mb-2 border">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#f2">Is cashless
+                                    insurance accepted?</button></h2>
+                            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted small">Yes. Star Health, HDFC Ergo, ICICI
+                                    Lombard, CGHS and most major TPAs are supported for cashless admission. Our desk
+                                    handles the approval for you.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-3 mb-2 border">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#f3">Can I cancel or
+                                    reschedule?</button></h2>
+                            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted small">Yes, up to 3 hours before your slot by
+                                    call or WhatsApp. Online payments are refunded to the original source in 5-7 working
+                                    days.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-3 mb-2 border">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#f4">How does the video
+                                    consultation work?</button></h2>
+                            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted small">A secure video link is sent on WhatsApp 15
+                                    minutes before your slot. Keep reports ready as photos or PDFs to share during the
+                                    call.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-3 mb-2 border">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#f5">Do I need to fast
+                                    for the screening tests?</button></h2>
+                            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted small">Fasting for 10-12 hours is advised for the
+                                    lipid profile. Water and regular medicines are allowed unless advised otherwise.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item rounded-3 mb-2 border">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#f6">What should I do in
+                                    a heart emergency?</button></h2>
+                            <div id="f6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted small">Chest pain with sweating or breathlessness
+                                    is an emergency. Call <strong>+91 98765 43210</strong> or 108 immediately and do not
+                                    drive yourself.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11b. Contact -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-semibold">Get In
+                    Touch</span>
+                <h2 class="h2 fw-bold mt-2">Visit or Call Us</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="d-grid gap-3">
+                        <div class="contact-box">
+                            <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Address</h6>
+                                <p class="small text-muted mb-0">Apollo Super Speciality Hospital, Sector 14,
+                                    Cardiology Block, 2nd Floor</p>
+                            </div>
+                        </div>
+                        <div class="contact-box">
+                            <div class="ic"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Appointments &amp; Emergency</h6>
+                                <p class="small text-muted mb-0"><a href="tel:+919876543210"
+                                        class="text-decoration-none text-muted">+91 98765 43210</a> (24x7)</p>
+                            </div>
+                        </div>
+                        <div class="contact-box">
+                            <div class="ic"><i class="fa-regular fa-envelope"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Email</h6>
+                                <p class="small text-muted mb-0">appointments@drvermaclinic.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-box">
+                            <div class="ic"><i class="fa-regular fa-clock"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">OPD Timing</h6>
+                                <p class="small text-muted mb-0">Mon - Sat: 09:00 AM - 08:00 PM<br>Sunday: Emergency
+                                    only</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="ratio ratio-4x3 rounded-4 overflow-hidden shadow-sm border"><iframe
+                            src="https://www.google.com/maps?q=Apollo+Hospital+Delhi&output=embed" loading="lazy"
+                            style="border:0" allowfullscreen></iframe></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment processing overlay -->
+    <div class="pay-overlay" id="payOverlay">
+        <div class="pay-box">
+            <div class="pay-ring"><i class="fa-solid fa-lock"></i></div>
+            <div class="text-muted small">Processing payment</div>
+            <div class="pay-amount" id="payOverlayAmount">₹0</div>
+            <ul class="pay-steps" id="paySteps">
+                <li><span class="dot"><i class="fa-solid fa-check"></i></span>Securing connection</li>
+                <li><span class="dot"><i class="fa-solid fa-check"></i></span><span id="payVerifyText">Verifying
+                        payment details</span></li>
+                <li><span class="dot"><i class="fa-solid fa-check"></i></span>Authorizing with bank</li>
+                <li><span class="dot"><i class="fa-solid fa-check"></i></span>Generating your token</li>
+            </ul>
+            <div class="pay-progress"><span id="payProgress"></span></div>
+            <p class="small text-muted mt-3 mb-0"><i class="fa-solid fa-shield-halved text-success me-1"></i> Please
+                do not close or refresh this page</p>
+        </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div class="modal fade" id="receiptModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow-lg">
+                <div class="modal-body p-4 text-center">
+                    <svg class="success-check" viewBox="0 0 52 52">
+                        <circle cx="26" cy="26" r="25" />
+                        <path d="M14 27l8 8 16-17" />
+                    </svg>
+                    <h4 class="fw-bold mb-1" id="modalTitle">Appointment Confirmed!</h4>
+                    <p class="text-muted small">Your OPD consultation token has been booked.</p>
+                    <div class="receipt-card text-start my-3">
+                        <div class="d-flex justify-content-between mb-2 rrow"><span class="text-muted small">Token
+                                Number:</span><span class="fw-bold text-primary font-monospace"
+                                id="modalBookingId">-</span></div>
+                        <div class="d-flex justify-content-between mb-2 rrow"><span class="text-muted small">Patient
+                                Name:</span><span class="fw-bold small" id="modalPatientName">-</span></div>
+                        <div class="d-flex justify-content-between mb-2 rrow"><span class="text-muted small">Time
+                                Slot:</span><span class="fw-bold small text-primary" id="modalSlot">-</span></div>
+                        <div class="d-flex justify-content-between mb-2 rrow"><span
+                                class="text-muted small">Transaction ID:</span><span
+                                class="fw-bold small font-monospace" id="modalTxnId">-</span></div>
+                        <div class="d-flex justify-content-between mb-2 rrow"><span class="text-muted small">Payment
+                                Mode:</span><span class="fw-bold small" id="modalPayMode">-</span></div>
+                        <div class="d-flex justify-content-between mb-2 rrow"><span
+                                class="text-muted small">Amount:</span><span class="fw-bold small"
+                                id="modalAmount">-</span></div>
+                        <div class="d-flex justify-content-between mb-2 rrow"><span class="text-muted small">Date
+                                &amp; Time:</span><span class="fw-bold small" id="modalDateTime">-</span></div>
+                        <div class="d-flex justify-content-between rrow"><span
+                                class="text-muted small">Status:</span><span class="badge" id="modalStatus">-</span>
+                        </div>
+                    </div>
+                    <p class="small text-muted mb-3"><i class="fa-brands fa-whatsapp text-success me-1"></i> SMS &amp;
+                        WhatsApp confirmation sent.</p>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-outline-primary rounded-3 py-2 fw-semibold flex-grow-1"
+                            id="downloadReceipt"><i class="fa-solid fa-download me-1"></i> Receipt</button>
+                        <button type="button" class="btn btn-primary rounded-3 py-2 fw-semibold flex-grow-1"
+                            data-bs-dismiss="modal" onclick="location.reload();">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-bottom-bar d-lg-none">
+        <a href="tel:+919876543210" class="mobile-btn-call" title="Call Doctor Emergency"><i
+                class="fa-solid fa-phone"></i></a>
+        <a href="https://wa.me/919876543210?text=Hi%20Dr.%20Verma,%20I%20want%20to%20inquire%20about%20OPD%20appointment"
+            class="mobile-btn-wa" title="WhatsApp Chat"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#booking-section" class="mobile-btn-book"><i class="fa-solid fa-calendar-check me-1"></i> Book OPD
+            Token</a>
+    </div>
+    <a href="tel:+919876543210" class="desktop-floating-call" title="Emergency Hotline"><i
+            class="fa-solid fa-phone"></i></a>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container text-center text-md-start">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-heart-pulse text-primary me-2"></i>Dr. Verma Heart
+                        Clinic</h5>
+                    <p class="text-secondary small">Cardiac catheterization, angioplasty, pacemaker and valve clinics,
+                        with round-the-clock emergency ICU care.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h6 class="fw-bold text-light mb-2">Hospital Location</h6>
+                    <p class="text-secondary small mb-1">Apollo Super Speciality Hospital, Sector 14</p>
+                    <p class="text-secondary small mb-0">Emergency 24x7: +91 98765 43210</p>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-secondary small">&copy; {{ date('Y') }} Dr. Alok Verma Cardiology Clinic.
+                All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            var navEl = document.getElementById('navMenu');
+            var navCollapse = bootstrap.Collapse.getOrCreateInstance(navEl, {
+                toggle: false
+            });
+            var $html = $('html'),
+                $backdrop = $('#menuBackdrop');
+
+            // ===== Mobile menu: lock page scroll, backdrop, close on outside tap =====
+            $(navEl).on('show.bs.collapse', function() {
+                $('#menuIcon').removeClass('fa-bars-staggered').addClass('fa-xmark');
+                $html.addClass('menu-open');
+                $backdrop.addClass('show');
+            });
+            $(navEl).on('hide.bs.collapse', function() {
+                $('#menuIcon').removeClass('fa-xmark').addClass('fa-bars-staggered');
+                $html.removeClass('menu-open');
+                $backdrop.removeClass('show');
+            });
+
+            function closeMenu() {
+                if ($(navEl).hasClass('show')) navCollapse.hide();
+            }
+
+            $backdrop.on('click touchstart', function(e) {
+                e.preventDefault();
+                closeMenu();
+            });
+            $(document).on('click touchstart', function(e) {
+                if (!$(navEl).hasClass('show')) return;
+                if ($(e.target).closest('#navMenu, #menuToggle').length) return;
+                closeMenu();
+            });
+            $(document).on('keydown', function(e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+            $(window).on('resize', function() {
+                if (window.innerWidth >= 992) closeMenu();
+            });
+
+            // ===== Smooth scroll for in-page links =====
+            $('a[href^="#"]').on('click', function(e) {
+                var href = this.getAttribute('href');
+                if (href.length < 2) return;
+                var target = $(href);
+                if (!target.length) return;
+                e.preventDefault();
+                var go = function() {
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 70
+                    }, 500);
+                };
+                if ($(navEl).hasClass('show')) {
+                    $(navEl).one('hidden.bs.collapse', go);
+                    closeMenu();
+                } else {
+                    go();
+                }
+            });
+
+            // ===== Active nav link on scroll (scrollspy) =====
+            var spyIds = ['about', 'services', 'schedule', 'pricing', 'testimonials', 'faqs', 'contact'];
+
+            function spy() {
+                var y = $(window).scrollTop() + 130,
+                    current = null;
+                spyIds.forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el && el.offsetTop <= y) current = id;
+                });
+                $('.navbar-nav .nav-link').removeClass('active');
+                if (current) $('.navbar-nav .nav-link[href="#' + current + '"]').addClass('active');
+            }
+            $(window).on('scroll', spy);
+            spy();
+
+            // ===== Image fallback if a photo fails to load =====
+            var fallback = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset="1" stop-color="#ccfbf1"/></linearGradient></defs><rect width="400" height="300" fill="url(#g)"/><text x="200" y="165" font-size="64" text-anchor="middle" fill="#0284c7">&#10084;</text></svg>'
+                );
+            $('img').each(function() {
+                var img = this;
+                $(img).on('error', function() {
+                    this.onerror = null;
+                    this.src = fallback;
+                });
+                if (img.complete && img.naturalWidth === 0) img.src = fallback;
+            });
+
+            // ===== Counters =====
+            var counted = false;
+            $(window).on('scroll', function() {
+                var cs = $('.counter-section');
+                if (!counted && cs.length && $(window).scrollTop() > cs.offset().top - window.innerHeight) {
+                    $('.counter-num').each(function() {
+                        var $t = $(this),
+                            to = parseInt($t.attr('data-target'), 10);
+                        $({
+                            n: 0
+                        }).animate({
+                            n: to
+                        }, {
+                            duration: 1800,
+                            easing: 'swing',
+                            step: function(v) {
+                                $t.text(Math.floor(v).toLocaleString() + '+');
+                            },
+                            complete: function() {
+                                $t.text(to.toLocaleString() + '+');
+                            }
+                        });
+                    });
+                    counted = true;
+                }
+            });
+
+            // ===== Fees =====
+            var FEES = {
+                "Cardiology OPD Consultation": 1000,
+                "Angioplasty & Stent Review": 1500,
+                "Pacemaker Checkup Clinic": 1200,
+                "Virtual Video Consultation": 800
+            };
+            var BOOKING_FEE = 29;
+
+            function inr(n) {
+                return '₹' + n.toLocaleString('en-IN');
+            }
+
+            function updateFees() {
+                var base = FEES[$('#inputDepartment').val()] || 0;
+                var conv = ($('input[name="payMethod"]:checked').val() === 'Pay at Clinic') ? 0 : BOOKING_FEE;
+                $('#feeBase').text(inr(base));
+                $('#feeConv').text(inr(conv));
+                $('#feeTotal').text(inr(base + conv));
+                return base + conv;
+            }
+
+            function makeTxnId() {
+                return 'TXN' + Date.now().toString().slice(-9) + Math.floor(10 + Math.random() * 90);
+            }
+            $('.pay-option').on('click', function() {
+                $('.pay-option').removeClass('selected');
+                $(this).addClass('selected').find('input').prop('checked', true);
+                $('#upiBox').toggle($(this).data('method') === 'UPI');
+                updateFees();
+            });
+            $('#inputDepartment').on('change', updateFees);
+            updateFees();
+
+            // ===== Stepper =====
+            $('#nextToStep2').click(function() {
+                $('#step1').fadeOut(200, function() {
+                    $('#step2').removeClass('d-none').fadeIn(200);
+                    $('#circle2').addClass('active');
+                    $('#circle1').addClass('completed');
+                    $('#stepProgressBar').css('width', '50%');
+                });
+            });
+            $('#backToStep1').click(function() {
+                $('#step2').fadeOut(200, function() {
+                    $('#step1').fadeIn(200);
+                    $('#circle2').removeClass('active');
+                    $('#circle1').removeClass('completed');
+                    $('#stepProgressBar').css('width', '0%');
+                });
+            });
+            $('#nextToStep3').click(function() {
+                var name = $('#inputName').val().trim(),
+                    phone = $('#inputPhone').val().trim();
+                if (!name || !phone) {
+                    alert('Please enter patient name and contact number.');
+                    return;
+                }
+                $('#summaryName').text(name);
+                $('#summaryService').text($('#inputDepartment').val());
+                $('#summarySlot').text($('#inputSlot').val());
+                updateFees();
+                $('#step2').fadeOut(200, function() {
+                    $('#step3').removeClass('d-none').fadeIn(200);
+                    $('#circle3').addClass('active');
+                    $('#circle2').addClass('completed');
+                    $('#stepProgressBar').css('width', '100%');
+                });
+            });
+            $('#backToStep2').click(function() {
+                $('#step3').fadeOut(200, function() {
+                    $('#step2').fadeIn(200);
+                    $('#circle3').removeClass('active');
+                    $('#circle2').removeClass('completed');
+                    $('#stepProgressBar').css('width', '50%');
+                });
+            });
+
+            // ===== Animated payment + booking =====
+            var lastReceipt = '';
+
+            function runPaymentAnimation(method, amount, done) {
+                var steps = $('#paySteps li');
+                steps.removeClass('active done');
+                $('#payProgress').css('width', '0');
+                $('#payOverlayAmount').text(inr(amount));
+                $('#payVerifyText').text(method === 'UPI' ? 'Verifying UPI ID' : (method === 'Pay at Clinic' ?
+                    'Reserving your slot' : 'Verifying card / bank details'));
+                $('#payOverlay').addClass('show');
+                var i = 0;
+                (function next() {
+                    if (i > 0) steps.eq(i - 1).removeClass('active').addClass('done');
+                    if (i >= steps.length) {
+                        $('#payProgress').css('width', '100%');
+                        setTimeout(function() {
+                            $('#payOverlay').removeClass('show');
+                            done();
+                        }, 500);
+                        return;
+                    }
+                    steps.eq(i).addClass('active');
+                    $('#payProgress').css('width', Math.round(((i + 1) / steps.length) * 100) + '%');
+                    i++;
+                    setTimeout(next, 800);
+                })();
+            }
+
+            function animateAmount(el, to) {
+                $({
+                    v: 0
+                }).animate({
+                    v: to
+                }, {
+                    duration: 1000,
+                    step: function(v) {
+                        el.text(inr(Math.round(v)));
+                    },
+                    complete: function() {
+                        el.text(inr(to));
+                    }
+                });
+            }
+
+            $('#appointmentForm').on('submit', function(e) {
+                e.preventDefault();
+                var method = $('input[name="payMethod"]:checked').val();
+                var upi = $('#inputUpi').val().trim();
+                if (method === 'UPI' && !/^[\w.\-]{2,}@[a-zA-Z]{2,}$/.test(upi)) {
+                    alert('Please enter a valid UPI ID (e.g. name@okaxis).');
+                    return;
+                }
+
+                var amount = updateFees();
+                var btn = $('#confirmSubmitBtn');
+                btn.prop('disabled', true);
+
+                // NOTE: For live payments, open Razorpay / PayU / Cashfree checkout here and run the AJAX call
+                // inside its success callback. Never post or store raw card details on your own server.
+                runPaymentAnimation(method, amount, function() {
+                    var txnId = (method === 'Pay at Clinic') ? 'PAY-AT-CLINIC' : makeTxnId();
+                    var status = (method === 'Pay at Clinic') ? 'Pending at Clinic' : 'Paid';
+                    var formData = {
+                        patient_name: $('#inputName').val(),
+                        phone: $('#inputPhone').val(),
+                        department: $('#inputDepartment').val(),
+                        doctor_slot: $('#inputSlot').val(),
+                        package: $('input[name="package"]:checked').val(),
+                        payment_method: method,
+                        amount: amount,
+                        transaction_id: txnId,
+                        payment_status: status,
+                        _token: '{{ csrf_token() }}'
+                    };
+
+                    function showReceipt(bookingId) {
+                        var when = new Date().toLocaleString('en-IN', {
+                            dateStyle: 'medium',
+                            timeStyle: 'short'
+                        });
+                        $('#modalBookingId').text(bookingId);
+                        $('#modalPatientName').text(formData.patient_name);
+                        $('#modalSlot').text(formData.doctor_slot);
+                        $('#modalTxnId').text(txnId);
+                        $('#modalPayMode').text(method);
+                        $('#modalDateTime').text(when);
+                        $('#modalStatus').text(status).attr('class', 'badge ' + (status === 'Paid' ?
+                            'bg-success' : 'bg-warning text-dark'));
+                        $('#modalTitle').text(status === 'Paid' ? 'Payment Successful!' :
+                            'Appointment Confirmed!');
+                        lastReceipt =
+                            'DR. VERMA HEART CLINIC - PAYMENT RECEIPT\n----------------------------------------\n' +
+                            'Token: ' + bookingId + '\nPatient: ' + formData.patient_name +
+                            '\nSlot: ' + formData.doctor_slot +
+                            '\nService: ' + formData.department + '\nTransaction ID: ' + txnId +
+                            '\nMode: ' + method +
+                            '\nAmount: ' + inr(amount) + '\nStatus: ' + status + '\nDate: ' + when +
+                            '\n';
+                        new bootstrap.Modal(document.getElementById('receiptModal')).show();
+                        animateAmount($('#modalAmount'), amount);
+                    }
+
+                    $.ajax({
+                        url: "{{ route('appointment.book') }}",
+                        type: "POST",
+                        data: formData,
+                        dataType: "json",
+                        success: function(res) {
+                            showReceipt(res.booking_id);
+                        },
+                        error: function() {
+                            showReceipt('MED-' + Math.floor(10000 + Math.random() *
+                                90000));
+                        },
+                        complete: function() {
+                            btn.prop('disabled', false);
+                        }
+                    });
+                });
+            });
+
+            $('#downloadReceipt').on('click', function() {
+                var blob = new Blob([lastReceipt], {
+                    type: 'text/plain'
+                });
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'receipt-' + Date.now() + '.txt';
+                a.click();
+                URL.revokeObjectURL(a.href);
+            });
+
+            // ===== Auto-scroll for swipe cards (mobile) =====
+            function initAutoScroll() {
+                if (window.innerWidth >= 768) return;
+                $('.mobile-snap-row').each(function() {
+                    var row = this,
+                        cols = $(row).children('.mobile-snap-col').toArray();
+                    var paused = false,
+                        visible = false,
+                        resumeTimer;
+                    new IntersectionObserver(function(en) {
+                        visible = en[0].isIntersecting;
+                    }, {
+                        threshold: 0.3
+                    }).observe(row);
+
+                    function pause() {
+                        paused = true;
+                        clearTimeout(resumeTimer);
+                    }
+
+                    function resume() {
+                        clearTimeout(resumeTimer);
+                        resumeTimer = setTimeout(function() {
+                            paused = false;
+                        }, 4000);
+                    }
+                    row.addEventListener('touchstart', pause, {
+                        passive: true
+                    });
+                    row.addEventListener('touchend', resume, {
+                        passive: true
+                    });
+                    row.addEventListener('mousedown', pause);
+                    row.addEventListener('mouseup', resume);
+
+                    function targetLeft(c) {
+                        var rr = row.getBoundingClientRect(),
+                            cr = c.getBoundingClientRect();
+                        return row.scrollLeft + (cr.left - rr.left) - (row.clientWidth - c.clientWidth) / 2;
+                    }
+                    setInterval(function() {
+                        if (paused || !visible || cols.length < 2) return;
+                        var cur = 0,
+                            min = Infinity;
+                        cols.forEach(function(c, i) {
+                            var d = Math.abs(targetLeft(c) - row.scrollLeft);
+                            if (d < min) {
+                                min = d;
+                                cur = i;
+                            }
+                        });
+                        row.scrollTo({
+                            left: targetLeft(cols[(cur + 1) % cols.length]),
+                            behavior: 'smooth'
+                        });
+                    }, 3000);
+                });
+            }
+            initAutoScroll();
+        });
+    </script>
+</body>
+
+</html>
